@@ -1,0 +1,25 @@
+.listContentArea {
+    display: flex;
+
+}
+
+.itemList {
+    border: 1px solid red;
+    margin: 5px;
+
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.contentArea {
+    border: 1px solid red;
+    margin: 5px;
+
+    flex-grow: 2;
+}
+
+.item {
+    border: 1px solid green;
+    margin: 2px;
+
+}
