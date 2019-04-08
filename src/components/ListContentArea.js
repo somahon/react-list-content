@@ -9,14 +9,21 @@ class ListContentArea extends Component {
         //save list of objects with a name and content to state
         let initialState = {
             listItems: [
-                {name: 'First List Item', content: <div>This is the detail area for the list item</div>},
-                {name: 'First List Item', content: <div>This is the detail area for the list item</div>},
-                {name: 'First List Item', content: <div>This is the detail area for the list item</div>},
-                {name: 'First List Item', content: <div>This is the detail area for the list item</div>},
+                {name: 'First List Item', content: <div>1 This is the detail area for the list item</div>},
+                {name: 'Second List Item', content: <div>2 This is the detail area for the list item</div>},
+                {name: 'Third List Item', content: <div>3 This is the detail area for the list item</div>},
+                {name: 'Fourth List Item', content: <div>4 This is the detail area for the list item</div>},
             ],
-            test: "Test Name"
+            test: "Test Name",
+            currentlySelected: null,
         }
         this.state = initialState;
+    }
+
+    setCurrentlySelected = (item) => {
+        this.setState(() => {
+            return { currentlySelected: item.content }
+        });
     }
 
     render() {
@@ -25,12 +32,12 @@ class ListContentArea extends Component {
 
                 <div className="itemList">
                 {this.state.listItems.map( (item, index) => {
-                    return <div className="item" key={index}>item</div>
+                    return <div className="item" key={index} onClick={this.setCurrentlySelected.bind(this, item)}>{item.name} </div>
                 })}
                 </div>
 
                 <div className="contentArea">
-                    content area
+                    {this.state.currentlySelected}
                 </div>
             </div>
         )
